@@ -171,6 +171,9 @@
 				_paramsFromObject(obj),
 				'</object>'
 			].join('');
+			
+			// ketwaroo; added swfobject.created event
+			$(flashContainer.firstChild).trigger('swfobject.created',obj);
 
 			return flashContainer.firstChild;
 		}
@@ -197,6 +200,9 @@
 						$this.children().remove();
 
 						$this.html(flashObject);
+						
+						// ketwaroo; added swfobject.appended event
+						$($this).trigger('swfobject.appended',flashObject);
 					}
 				}
 			);
